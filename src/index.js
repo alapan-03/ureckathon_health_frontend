@@ -3,10 +3,26 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Link,
+} from "react-router-dom";
+import Signup from './Components/Signup';
+import CommunityHome from './Components/CommunityHome';
+import CommunityDetail from './Components/CommunityDetail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Signup/>}/>
+        <Route path='/:comId' element={<CommunityHome/>}/>
+        <Route path='/:comId/:qId' element={<CommunityDetail/>}/>
+      </Routes>
+    </Router>
     <App />
   </React.StrictMode>
 );

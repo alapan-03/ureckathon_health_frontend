@@ -7,9 +7,10 @@ import { Link } from "react-router-dom";
 export default function Signup(props) {
     
     const cookies = new Cookies();
-    
+
     const [result, setResult] = useState(null);
     const [token, setToken] = useState(null);
+    const [comId, setComId] = useState();
 
 
     const [postData, setPostData] = useState({
@@ -76,6 +77,14 @@ export default function Signup(props) {
           if (response.ok) {
             const result = await response.json();
             console.log(result);
+            result && setComId(result.communityId)
+            // window.location.redirect(`/${comId}`)
+            setTimeout(() => {
+                
+                console.log(comId)
+                if(comId)
+                window.location.href = `/${comId}`;
+            }, 1000);
           }
     
           // Handle the response data
@@ -93,7 +102,7 @@ export default function Signup(props) {
         }
     }
 
-
+cookies.set("city", postData.city)
 
 
 
