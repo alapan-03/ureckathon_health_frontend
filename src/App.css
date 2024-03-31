@@ -96,6 +96,34 @@
 /* -------------------------------------------------questions-------------------------------------------- */
 
 
+textarea{
+  resize: none;
+  width: 18vw;
+  height: 15vh;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+button{
+  border-radius: 5px;
+  padding: 0.4rem 1rem 0.4rem 1rem;
+}
+
+
+.q-cont-outer{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.postQ{
+  margin-top: 14vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
 
 .q-cont{
   display: flex;
@@ -112,6 +140,7 @@
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.236);
   /* min-width: 10rem; */
   color: black;
+
 }
 
 .link{
@@ -202,6 +231,36 @@
   height: 100vh;
 } */
 
+/* .doc-inp-outer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+} */
+
+.doc-input{
+  position: fixed; /* Fixed position */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust position */
+  max-height: 80vh; /* Maximum height */
+  overflow-y: auto; /* Enable overflow-y scrolling */
+  background-color: #f9f9f9; /* Example background color */
+  padding: 3rem; /* Example padding */
+  border: 1px solid #ccc; /* Example border */
+  border-radius: 10px; 
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  visibility: hidden;
+  z-index: 100;
+}
+
+.doc-input input{
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
 .doctor-cont{
   position: fixed; /* Fixed position */
   top: 50%; /* Center vertically */
@@ -220,6 +279,7 @@
   align-items: center;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.192);
   visibility: hidden;
+  z-index: 1;
 }
 
 ::-webkit-scrollbar {
