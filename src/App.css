@@ -136,10 +136,35 @@
 /* -----------------------------------------details------------------------------------------------ */
 
 
+.details{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5vh;
+}
+.ans-cont{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.a-u-cont{
+  display: flex;
+  gap: 0.9vw;
+  align-items: center;
+}
+
+.a-u-logo{
+  background-color: rgb(189, 189, 189);
+  border-radius: 50%;
+  padding: 1vh 0.9vw;
+}
 
 .detail-cont{
   padding-top: 1rem;
-  padding-bottom: 1rem;
+  /* padding-bottom: 1rem; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -161,4 +186,97 @@
   background-color: rgb(189, 189, 189);
   border-radius: 50%;
   padding: 1vh 0.9vw;
+}
+
+
+
+
+/* -----------------------------------doctor----------------------------------------- */
+
+
+/* 
+.doc-cont-outer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+} */
+
+.doctor-cont{
+  position: fixed; /* Fixed position */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust position */
+  max-height: 80vh; /* Maximum height */
+  overflow-y: auto; /* Enable overflow-y scrolling */
+  background-color: #f9f9f9; /* Example background color */
+  padding: 20px; /* Example padding */
+  border: 1px solid #ccc; /* Example border */
+  border-radius: 10px; 
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 50vw;
+  align-items: center;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.192);
+  visibility: hidden;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.doc-inner{
+  background-color: rgb(255, 248, 238);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.199);
+  width: 80%;
+  border-radius: 5px;
+  padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+
+/* -------------------------------answers------------------------------------ */
+
+
+.ans-cont-outer {
+  display: flex;
+  justify-content: space-around;
+  gap: 2vw;
+  align-items: flex-start;
+  /* Remove height property to allow dynamic resizing */
+  /* height: 20vh; */
+}
+
+.ans-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+ gap: 1rem;
+}
+
+.ans-inner{
+  background-color: rgb(244, 244, 244);
+  padding: 1vw;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-ans{
+  display: flex;
+  gap: 1vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.showDoc{
+  background-color: rgb(255, 246, 232);
+  padding: 1vw;
+  border-radius: 5px;
 }
