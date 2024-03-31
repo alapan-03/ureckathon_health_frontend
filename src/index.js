@@ -12,6 +12,8 @@ import {
 import Signup from './Components/Signup';
 import CommunityHome from './Components/CommunityHome';
 import CommunityDetail from './Components/CommunityDetail';
+import Login from './Components/Login';
+import Doctor from './Components/Doctor';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +21,8 @@ root.render(
     <Router>
       <Routes>
         <Route path='/' element={<Signup/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/doctor' element={<Doctor/>}/>
         <Route path='/:comId' element={<CommunityHome/>}/>
         <Route path='/:comId/:qId' element={<CommunityDetail/>}/>
       </Routes>

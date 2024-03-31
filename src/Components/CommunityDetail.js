@@ -23,20 +23,6 @@ export default function CommunityDetail(props) {
     setPostData({ ...postData, [e.target.name]: e.target.value });
 };
 
-  const [postDocData, setPostDocData] = useState({
-    // Your POST data fields go here
-    name: "",
-    clinic: "",
-    age: null,
-    experience: null,
-    specialty: "" 
-  });
-
-  const handleDocChange = (e) => {
-    setPostDocData({ ...postDocData, [e.target.name]: e.target.value });
-};
-
-
 
   const [docId, setDocId] = useState(null);
 
@@ -194,37 +180,6 @@ export default function CommunityDetail(props) {
 let docInp = document.getElementsByClassName("doc-input")[0];
 let docCont = document.getElementsByClassName("doctor-cont")[0]
   
-  const postDoc = async () => {
-    try {
-        const q = await fetch(
-          `http://127.0.0.1:4000/api/v1/doctor/postDoc`,
-          {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            //   Authorization: `Bearer ${stringWithoutQuotes}`,
-              Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MDkwZDlmZDUzNDcxNjE5ZTg4MWY3NiIsImlhdCI6MTcxMTg2OTQ0OX0.jYdFt__G14FV29fXjdGRLUyylQ4OX_lQWPn_1xKhmVo`,
-            },
-            body: JSON.stringify(postDocData), 
-          }
-        );
-
-        if (q.ok) {
-
-            docCont.style.visibility = "hidden";
-            docInp.style.visibility = "hidden";
-            // window.location.reload()
-          let dt = await q.json();
-          console.log(dt);
-          setData4(dt);
-        } else {
-          let dt = await q.json();
-          console.log(dt.message);
-        }
-      } catch (err) {
-        console.log(err);
-      }
-  }
 
   
 
@@ -274,31 +229,6 @@ let docCont = document.getElementsByClassName("doctor-cont")[0]
   return (
     <>
       <section className="details">
-{/* <div className="doc-inp-outer">        */}
-<div className="doc-input">
-    <input type="text" name="name"
-             value={postDocData.answer}
-             onChange={handleDocChange} placeholder="Name"></input>
-
-    <input type="number" name="age"
-             value={postDocData.age}
-             onChange={handleDocChange} placeholder="Age"></input>
-
-    <input type="number" name="experience"
-             value={postDocData.experience}
-             onChange={handleDocChange} placeholder="Experience"></input>
-
-    <input type="text" name="clinic"
-             value={postDocData.clinic}
-             onChange={handleDocChange} placeholder="Clinic"></input>
-
-    <input type="text" name="specialty"
-             value={postDocData.specialty}
-             onChange={handleDocChange} placeholder="Specialty"></input>
-
-             <button onClick={postDoc}>Post</button>
-</div>
-{/* </div>  */}
 
 <div className="doctor-cont">
     <div>
@@ -308,19 +238,20 @@ let docCont = document.getElementsByClassName("doctor-cont")[0]
         onChange={handleSearchChange}
         placeholder="Search doctors..."
       />
-{currUser && currUser.user.role==="user" && 
-      <button onClick={showDocInp}>Add doctor</button>
-}
+
+      {/* <button onClick={showDocInp}>Add doctor</button> */}
+
 </div>
     {filteredDoctors && filteredDoctors?.map((el)=>(
         <div className="doc-inner">
             <div className="doc-inner2">
-                <p>{el.name}</p>
-                <p>{el.clinic}</p>
-                <p>{el.experience}</p>
-                <p>{el.specialty}</p>
+                <p>{el?.name}</p>
+                <p>{el?.clinic}</p>
+                <p>{el?.experience}</p>
+                <p>{el?.specialty}</p>
             </div>
-            <button onClick={()=>attachDoc(el._id)}>Attach</button>
+            
+                <button onClick={()=>attachDoc(el._id)}>Attach</button>
         </div>
     ))}
 </div>
@@ -333,11 +264,11 @@ let docCont = document.getElementsByClassName("doctor-cont")[0]
               <div className="detail-inner-cont">
                 <div className="detail-user-cont">
                   <p className="detail-u-icon">
-                    {el.userId.name.substr(0, 1).toUpperCase()}
+                    {el?.userId?.name?.substr(0, 1).toUpperCase()}
                   </p>
-                  <p>{el.userId.name}</p>
+                  <p>{el?.userId?.name}</p>
                 </div>
-                <p className="detail-des">{el.description}</p>
+                <p className="detail-des">{el?.description}</p>
               </div>
             ))}
         </div>
@@ -349,19 +280,19 @@ let docCont = document.getElementsByClassName("doctor-cont")[0]
               data2?.a.map((el) => (
                 <div className="ans-inner">
                   <div className="a-u-cont">
-                    <p className="a-u-logo">{el.userId.name.substr(0, 1).toUpperCase()}</p>
-                    <p>{el.userId.name}</p>
+                    <p className="a-u-logo">{el?.userId?.name.substr(0, 1).toUpperCase()}</p>
+                    <p>{el?.userId?.name}</p>
                   </div>
-                  <p>{el.answer}</p>
+                  <p>{el?.answer}</p>
 
                 {
                   el.doctorId && 
                   <div className="showDoc">
-                        <p>Name: {el.doctorId.name}</p>
-                        <p>Clinic: {el.doctorId.clinic}</p>
-                        <p>Age: {el.doctorId.age}</p>
-                        <p>Experience: {el.doctorId.experience}</p>
-                        <p>Specialty: {el.doctorId.specialty}</p>
+                        <p>Name: {el?.doctorId?.name}</p>
+                        <p>Clinic: {el?.doctorId?.clinic}</p>
+                        <p>Age: {el?.doctorId?.age}</p>
+                        <p>Experience: {el?.doctorId?.experience}</p>
+                        <p>Specialty: {el?.doctorId?.specialty}</p>
                   </div>
                 }
                 </div>
@@ -370,7 +301,7 @@ let docCont = document.getElementsByClassName("doctor-cont")[0]
 
 
           <div className="post-ans">
-            <textarea
+            <textarea placeholder="Type an answer..."
              name="answer"
              value={postData.answer}
              onChange={handleChange}

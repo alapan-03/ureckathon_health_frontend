@@ -93,8 +93,8 @@ export default function CommunityHome(props) {
                     <Link className="link" to={`${currentUrl}/${el._id}`}>
                         <div className="q-inner-cont">
                             <div className="q-user-cont">
-                            <p className="q-u-icon">{el.userId.name.substr(0,1).toUpperCase()}</p>
-                            <p>{el.userId.name}</p>
+                            <p className="q-u-icon">{el?.userId?.name.substr(0,1).toUpperCase()}</p>
+                            <p>{el?.userId?.name}</p>
                         </div>
                         <p className="q-des">{el.description}</p>
                     </div>
