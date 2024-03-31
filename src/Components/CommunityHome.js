@@ -85,7 +85,7 @@ export default function CommunityHome(props) {
         <div className="q-cont-outer">
 
             <div className="q-cont">
-            <h1>{cookies.get("city")}</h1>
+            <h1>{data && data.q && data.q.length>0 && data?.q[0].communityId?.name}</h1>
 
             {
                 data && Array.isArray(data?.q) ? data?.q?.map((el)=>(

@@ -177,8 +177,8 @@ export default function CommunityDetail(props) {
 }
 
 
-let docInp = document.getElementsByClassName("doc-input")[0];
-let docCont = document.getElementsByClassName("doctor-cont")[0]
+let docInp = document.getElementsByClassName("doc-input")[0] && document.getElementsByClassName("doc-input")[0];
+let docCont = document.getElementsByClassName("doctor-cont")[0] && document.getElementsByClassName("doctor-cont")[0]
   
 
   
@@ -191,13 +191,13 @@ let docCont = document.getElementsByClassName("doctor-cont")[0]
   // Filter the list of doctors based on the search query
   const filterDoctors = (doctor) => {
     const { name, clinic, experience, specialty, _id } = doctor;
-    const lowerCaseQuery = searchQuery.toLowerCase();
+    const lowerCaseQuery = searchQuery?.toLowerCase();
     const experienceString = String(experience);
     return (
-      name.toLowerCase().includes(lowerCaseQuery) ||
-      clinic.toLowerCase().includes(lowerCaseQuery) ||
-      experienceString.includes(lowerCaseQuery) ||
-      specialty.toLowerCase().includes(lowerCaseQuery)
+      name?.toLowerCase().includes(lowerCaseQuery) ||
+      clinic?.toLowerCase().includes(lowerCaseQuery) ||
+      experienceString?.includes(lowerCaseQuery) ||
+      specialty?.toLowerCase().includes(lowerCaseQuery)
     );
   };
 
@@ -206,6 +206,7 @@ let docCont = document.getElementsByClassName("doctor-cont")[0]
 
   function attachDoc(docId){
     setDocId(docId);
+    if(docCont)
     docCont.style.visibility = "hidden"
   }
 

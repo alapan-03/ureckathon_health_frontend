@@ -130,7 +130,7 @@ docCont.style.visibility = "visible";
 
             docCont.style.visibility = "hidden";
             docInp.style.visibility = "hidden";
-            // window.location.reload()
+            window.location.reload()
           let dt = await q.json();
           console.log(dt);
           setData4(dt);

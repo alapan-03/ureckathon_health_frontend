@@ -44,6 +44,11 @@ export default function Signup(props) {
                 alert.style.visibility = "visible"
             }, 1000);
           }
+
+          else{
+            const res = await response.json();
+            console.log(res.message)
+          }
     
           // Handle the response data
           const result = await response.json();
@@ -85,6 +90,10 @@ export default function Signup(props) {
                 if(comId)
                 window.location.href = `/${comId}`;
             }, 1000);
+          }
+          else{
+            const err = await response.json();
+            console.log(err.message)
           }
     
           // Handle the response data
